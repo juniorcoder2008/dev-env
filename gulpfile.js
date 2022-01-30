@@ -41,6 +41,11 @@ const css = () => {
        .pipe(gulp.dest('./dist/css'));
 };
 
+const assets = () => {
+    return gulp.src('./app/assets/*')
+        .pipe(gulp.dest('./dist/assets'));
+}
+
 const html = () => {
    return gulp.src('./app/*.html')
        .pipe(htmlmin({
@@ -62,9 +67,9 @@ const js = () => {
        .pipe(gulp.dest('./dist/js'));
 };
 
-const watch = () => gulp.watch(['./app/style/**/*.sass', './app/js/**/*.js', './app/**/*.html'], gulp.series(js, css, html, reload));
-const start = gulp.series(js, css, html, serve, watch);
-const build = gulp.series(js, css, html);
+const watch = () => gulp.watch(['./app/style/**/*.sass', './app/js/**/*.js', './app/**/*.html', './app/assets/*'], gulp.series(js, css, html, assets, reload));
+const start = gulp.series(js, css, html, assets, serve, watch);
+const build = gulp.series(js, css, html, assets);
 
 exports.start = start;
 exports.build = build;
