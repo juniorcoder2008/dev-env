@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
 const uglifycss = require('gulp-uglifycss');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify-es').default;
@@ -8,6 +7,11 @@ const sourcemaps = require('gulp-sourcemaps');
 const htmlmin = require('gulp-htmlmin');
 const browsersync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
+
+const gulpSass = require('gulp-sass');
+const nodeSass = require('node-sass');
+
+const sass = gulpSass(nodeSass);
 
 const reload = done => {
    browsersync.reload();

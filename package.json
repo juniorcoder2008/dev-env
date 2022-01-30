@@ -8,20 +8,20 @@
     "build": "gulp"
   },
   "keywords": [],
-  "author": "",
+  "author": "JuniorCoder",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "^2.26.14",
-    "eslint": "^7.19.0",
+  "dependencies": {
+    "browser-sync": "^2.27.7",
+    "eslint": "^8.8.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify-es": "^2.0.0",
-    "gulp-uglifycss": "^1.1.0"
+    "gulp-uglify-es": "^3.0.0",
+    "gulp-uglifycss": "^1.1.0",
+    "node-sass": "^7.0.1"
   }
 }

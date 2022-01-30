@@ -1,1 +1,1 @@
-console.log("Hi");
+console.log("This is the JS part");
