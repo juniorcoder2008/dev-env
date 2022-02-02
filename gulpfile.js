@@ -42,9 +42,9 @@ const css = () => {
 };
 
 const assets = () => {
-    return gulp.src('./app/assets/*')
+    return gulp.src('./app/assets/**/*.svg')
         .pipe(gulp.dest('./dist/assets'));
-}
+};
 
 const html = () => {
    return gulp.src('./app/*.html')
@@ -52,8 +52,7 @@ const html = () => {
            collapseWhitespace: true,
            html5: true,
            removeComments: true,
-           removeEmptyAttributes: true,
-           removeEmptyElements: true,
+           removeEmptyAttributes: true
        }))
        .pipe(gulp.dest('./dist/'));
 };
