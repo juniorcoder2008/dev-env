@@ -51,6 +51,10 @@ body
   top: 4rem
   width: 25rem
   z-index: 10
+  background-color: $second
+  padding: 1rem 2.5rem
+  border-radius: .5rem
+  border: 2px solid $green
 
   ul
     display: flex
@@ -178,6 +182,46 @@ body
 
 #projects
   height: 100vh
+  padding: 0 20rem
+
+  h1
+    color: $white
+    font-size: 3rem
+    font-family: $heading
+    font-weight: 800
+    margin-bottom: 3rem
+
+  .project
+    width: 50rem
+    background: rgba( 255, 255, 255, 0.25 )
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 )
+    backdrop-filter: blur( 10px )
+    -webkit-backdrop-filter: blur( 4px )
+    border: 0.5px solid rgba( 255, 255, 255, 0.18 )
+    color: $white
+    border-radius: 1rem
+
+    .heading
+      width: 100%
+      background: rgba(255, 255, 255, .2)
+      padding: 1rem
+      border-radius: 1rem 1rem 0 0
+      display: flex
+      align-items: center
+
+      a
+        font-weight: 800
+        font-family: $text
+        color: $fullw
+        font-size: 1.2rem
+
+      i
+        font-size: 2rem
+        margin-right: 1.5rem
+
+    .info
+      padding: 1rem
+
 
 #skills
   height: 100vh
