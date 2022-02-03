@@ -13,6 +13,6 @@
        "prefer-const": "warn",
        "default-case": "error",
        "func-call-spacing": "error",
-       "key-spacing": "error",
+       "key-spacing": "error"
    }
 }
