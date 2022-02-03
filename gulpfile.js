@@ -1,3 +1,4 @@
+// Initialize all node modules
 const gulp = require('gulp');
 const uglifycss = require('gulp-uglifycss');
 const rename = require('gulp-rename');
@@ -8,11 +9,13 @@ const htmlmin = require('gulp-htmlmin');
 const browsersync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 
+// Initialize The Gulp Sass Module
 const gulpSass = require('gulp-sass');
 const nodeSass = require('node-sass');
 
 const sass = gulpSass(nodeSass);
 
+// Basic Functions for Browsersync
 const reload = done => {
    browsersync.reload();
    done();
@@ -28,6 +31,7 @@ const serve = done => {
    done();
 };
 
+// Compile and minify functions
 const css = () => {
    return gulp.src('./app/style/**/*.sass')
        .pipe(sass().on('error', sass.logError))
@@ -66,6 +70,7 @@ const js = () => {
        .pipe(gulp.dest('./dist/js'));
 };
 
+// Important for the execution of the different functions
 const watch = () => gulp.watch(['./app/style/**/*.sass', './app/js/**/*.js', './app/**/*.html', './app/assets/*'], gulp.series(js, css, html, assets, reload));
 const start = gulp.series(js, css, html, assets, serve, watch);
 const build = gulp.series(js, css, html, assets);
