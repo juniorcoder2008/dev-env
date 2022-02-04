@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp start",
-    "build": "gulp"
+    "build": "gulp",
+    "test": "jest"
   },
   "keywords": [],
   "author": "JuniorCoder",
@@ -22,6 +23,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify-es": "^3.0.0",
     "gulp-uglifycss": "^1.1.0",
+    "jest": "^27.4.7",
     "node-sass": "^7.0.1"
   }
 }
