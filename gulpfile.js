@@ -8,6 +8,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const htmlmin = require('gulp-htmlmin');
 const browsersync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
+const browserify = require('gulp-browserify');
 
 // Initialize The Gulp Sass Module
 const gulpSass = require('gulp-sass');
@@ -26,7 +27,7 @@ const serve = done => {
        server: {
            baseDir: './dist/'
        },
-       notify: false
+       notify: false,
    });
    done();
 };
@@ -63,6 +64,9 @@ const html = () => {
 
 const js = () => {
    return gulp.src('./app/js/**/*.js')
+        .pipe(browserify({
+            insertGlobals: true,
+        }))
        .pipe(concat('global.min.js'))
        .pipe(sourcemaps.init())
        .pipe(uglify())
