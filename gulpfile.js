@@ -17,12 +17,12 @@ const nodeSass = require('node-sass');
 const sass = gulpSass(nodeSass);
 
 // Basic Functions for Browsersync
-const reload = done => {
+const reloadServer = done => {
    browsersync.reload();
    done();
 };
 
-const serve = done => {
+const startServer = done => {
    browsersync.init({
        server: {
            baseDir: './dist/'
@@ -33,7 +33,7 @@ const serve = done => {
 };
 
 // Compile and minify functions
-const css = () => {
+const compileCss = () => {
    return gulp.src('./app/style/**/*.sass')
        .pipe(sass().on('error', sass.logError))
        .pipe(sourcemaps.init())
@@ -46,12 +46,12 @@ const css = () => {
        .pipe(gulp.dest('./dist/css'));
 };
 
-const assets = () => {
+const copyAssets = () => {
     return gulp.src('./app/assets/**/*.svg')
         .pipe(gulp.dest('./dist/assets'));
 };
 
-const html = () => {
+const compileHTML = () => {
    return gulp.src('./app/*.html')
        .pipe(htmlmin({
            collapseWhitespace: true,
@@ -62,7 +62,7 @@ const html = () => {
        .pipe(gulp.dest('./dist/'));
 };
 
-const js = () => {
+const compileJS = () => {
    return gulp.src('./app/js/**/*.js')
         .pipe(browserify({
             insertGlobals: true,
@@ -75,9 +75,9 @@ const js = () => {
 };
 
 // Important for the execution of the different functions
-const watch = () => gulp.watch(['./app/style/**/*.sass', './app/js/**/*.js', './app/**/*.html', './app/assets/*'], gulp.series(js, css, html, assets, reload));
-const start = gulp.series(js, css, html, assets, serve, watch);
-const build = gulp.series(js, css, html, assets);
+const watch = () => gulp.watch(['./app/style/**/*.sass', './app/js/**/*.js', './app/**/*.html', './app/assets/*'], gulp.series(compileJS, compileCss, compileHTML, copyAssets, reloadServer));
+const start = gulp.series(compileJS, compileCss, compileHTML, copyAssets, startServer, watch);
+const build = gulp.series(compileJS, compileCss, compileHTML, copyAssets);
 
 exports.start = start;
 exports.build = build;
