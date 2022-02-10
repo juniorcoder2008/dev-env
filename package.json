@@ -27,7 +27,6 @@
     "gulp-uglify-es": "^3.0.0",
     "gulp-uglifycss": "^1.1.0",
     "jest": "^27.4.7",
-    "jquery": "^3.6.0",
     "node-sass": "^7.0.1",
     "prettier": "^2.5.1"
   }
