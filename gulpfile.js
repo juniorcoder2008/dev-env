@@ -48,7 +48,7 @@ const compileCss = () => {
 };
 
 const copyAssets = () => {
-    return gulp.src('./app/assets/**/*.svg').pipe(gulp.dest('./dist/assets'));
+    return gulp.src('./app/assets/**/*').pipe(gulp.dest('./dist/assets'));
 };
 
 const compileHTML = () => {
