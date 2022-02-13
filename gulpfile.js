@@ -7,9 +7,11 @@ const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 const htmlmin = require('gulp-htmlmin');
 const browsersync = require('browser-sync').create();
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('autoprefixer');
 const browserify = require('gulp-browserify');
 const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
 
 // Initialize The Gulp Sass Module
 const gulpSass = require('gulp-sass');
@@ -35,14 +37,16 @@ const startServer = (done) => {
 
 // Compile and minify functions
 const compileCss = () => {
+    const plugins = [autoprefixer(), cssnano()];
+
     return gulp
         .src('./app/style/**/*.sass')
-        .pipe(sass().on('error', sass.logError))
         .pipe(plumber())
         .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss([autoprefixer(), cssnano()]))
         .pipe(uglifycss())
         .pipe(rename({ basename: 'style', suffix: '.min' }))
-        .pipe(autoprefixer())
         .pipe(sourcemaps.write(''))
         .pipe(gulp.dest('./dist/css'));
 };
