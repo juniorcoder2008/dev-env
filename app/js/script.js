@@ -8,6 +8,6 @@ const colors = {
     yellow: '#FFCC00',
     white: '#eeeeee',
     black: '#1b1b1b',
-    fullWhite: '#fff',
-    fullBlack: '#000',
+    fullWhite: '#ffffff',
+    fullBlack: '#000000',
 };
