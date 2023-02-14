@@ -14,10 +14,7 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 
 // Initialize The Gulp Sass Module
-const gulpSass = require('gulp-sass');
-const nodeSass = require('node-sass');
-
-const sass = gulpSass(nodeSass);
+const sass = require('gulp-sass')(require('sass'));
 
 // Basic Functions for Browsersync
 const reloadServer = (done) => {
